@@ -341,15 +341,12 @@ jobs:
         run: |
           cd kernel_workspace/common
           echo "🛠️ Setting up KernelSU..."
-          # SUSFS patches track branch tip; pin to main when SUSFS is enabled,
-          # otherwise use latest release tag.
-          if [ "${{ github.event.inputs.SUSFS }}" == "true" ]; then
-            curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -s main
-          else
-            curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -
-          fi
+          # Always track latest KernelSU CI on main.
+          curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -s main
           cd KernelSU
-          KSU_GIT_VERSION=$(git rev-list --count HEAD)
+          git fetch --force origin main
+          git checkout -B main origin/main
+          KSU_GIT_VERSION=$(git rev-list --count origin/main)
           export KSUVER=$(expr 10000 + $KSU_GIT_VERSION + 200)
           echo "KSUVER=$KSUVER" >> $GITHUB_ENV
           echo "✅ KernelSU $(git describe --tags 2>/dev/null || git rev-parse --short HEAD)  (ver $KSUVER)"
