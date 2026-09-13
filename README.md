@@ -6,7 +6,7 @@
         <small>Stability-focused OGKI (aka OKI) 6.6 kernel for OnePlus 13 (SM8750)</small>
       </p>
       <p align="center" style="font-size:12px; margin-top: 0; margin-bottom: 20px;">
-        <i>SukiSU Ultra &amp; ReSukiSU &amp; KernelSU &amp; KernelSU Next</i>
+        <i>ReSukiSU &amp; KernelSU Next &amp; KernelSU &amp; SukiSU Ultra</i>
       </p>
     </summary>
   </ul>
@@ -29,7 +29,7 @@
 | **Chipset** | `SM8750` \| Snapdragon 8 Elite \| sun |
 | **Android Version** | `15 VanillaIceCream` (compatible with later versions) |
 | **ROM Compatibility** | OxygenOS / ColorOS **or** AOSP — one build per ROM type ([see below](#-rom-compatibility)) |
-| **Root Solution** | SukiSU Ultra / KSU Next / KSU / ReSukiSU |
+| **Root Solution** | ReSukiSU / KSU Next / KSU / SukiSU Ultra |
 | **Build System** | GitHub Actions CI/CD (optimized for ~5-6min builds) |
 
 ---
@@ -228,15 +228,13 @@ This CI pipeline includes:
 |-------------|-------------|
 | [mrcxlinux](https://github.com/mrcxlinux) | The base workflow
 | [xiaomichael](https://github.com/xiaomichael) | Some help & GKI infrastructure |
-| [cctv18](https://github.com/cctv18) | SuSFS, ccache-ECS, Baseband Guard, public ccache |
-| [vc-teahouse](https://github.com/vc-teahouse) | SukiSU Ultra core |
+| [cctv18](https://github.com/cctv18) | Base of kernel source, ccache-ESC |
 | [Numbersf](https://github.com/Numbersf) | Fengchi / HMBIRD scheduler patches |
-| [WildKernels](https://github.com/WildKernels) | 25 memory/scheduler optimization patches, BBRv3 backport patch & workflow optimization |
 | [ShirkNeko](https://github.com/ShirkNeko) | LZ4KD & ZRAM patches |
 | [ZyCromerZ](https://github.com/ZyCromerZ) | Oryon-optimized Clang 19 toolchain |
 | [linx3141](https://github.com/linx3141) | AOSP support |
-| [TheWildJames](https://github.com/TheWildJames) | Unicode fix, BBRv3 patch mirror & additional kernel patches |
-| [FatalCoder524](https://github.com/fatalcoder524) | BBRv3 integration method (`CONFIG_TCP_CONG_BBR3` + patch flow) |
+| [TheWildJames](https://github.com/TheWildJames) | Unicode fix & additional kernel patches |
+| [FatalCoder524](https://github.com/fatalcoder524) | BBRv3, kernel optimization patches |
 | [brokestar233](https://github.com/brokestar233) | BORE scheduler integration for OnePlus SM8750 (source patch) |
 | [firelzrd](https://github.com/firelzrd) | BORE (Burst-Oriented Response Enhancer) CPU scheduler |
 
